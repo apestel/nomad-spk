@@ -8,7 +8,7 @@ DNAME="nomad"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 DIR_NOMAD="${INSTALL_DIR}/nomad"
-CONF_DIR="${DIR_NAME}/conf.d"
+CONF_DIR="${DIR_NOMAD}/conf.d/server.conf"
 ALT_CONF_DIR="/etc/nomad"
 NOMAD="${DIR_NOMAD}/nomad"
 PID_FILE="/var/run/nomad.pid"
@@ -28,7 +28,7 @@ export USERNAME=root
 
 start_daemon ()
 {
-    echo "Using configuration file in ${CONFIG_DIR}" >> $LOG_FILE
+    echo "Using configuration file in ${CONF_DIR}" >> $LOG_FILE
     ${NOMAD} $ARGS >> ${LOG_FILE} 2>&1 &
     echo $! > ${PID_FILE}
 }
